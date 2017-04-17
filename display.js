@@ -25,7 +25,7 @@ function display(req,res) {
             return console.log("Error" + err);
         }
          var results = [];
-       client.query('SELECT * FROM location;',
+       client.query('SELECT * FROM location ORDER BY time DESC LIMIT 5;',
          (err, results) => {
             //return the client back after you are done using it 
             release();
@@ -35,6 +35,7 @@ function display(req,res) {
             
             //'results.rows' contains the data of the rows selected from the query
             res.send(results.rows);
+            console.log(results.rows);
          });
     });
 }
