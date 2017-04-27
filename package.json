@@ -1,0 +1,25 @@
+{
+  "name": "gps_server",
+  "version": "1.0.0",
+  "description": "A server which stores GPS coordinates in a database",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "jquery-validation": "^1.15.1",
+    "pg": "^6.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maverick96/GPS-Coordinates.git"
+  },
+  "author": "Harsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maverick96/GPS-Coordinates/issues"
+  },
+  "homepage": "https://github.com/Maverick96/GPS-Coordinates#readme"
+}
