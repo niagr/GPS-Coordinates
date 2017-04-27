@@ -20,7 +20,7 @@ function addToDataBase(req,res){
     const input = req.body;
 
     //Check for null values 
-    if(input.latitude == '' || input.longitude == '' || input.timestamp == ''){
+    if(input.latitude == '' || input.longitude == '' || input.time == '' || input.trip_id == ''){
         res.send('<h1>Input Some Values Ediot</h1>\n');
     }
     else {
@@ -33,7 +33,7 @@ function addToDataBase(req,res){
             return console.log("Error" + err);
         }
         //insert tuple to database
-        client.query('INSERT INTO location(latitude,longitude,time,date) VALUES ($1,$2,$3,$4);', [input.latitude,input.longitude,timeDate[0],timeDate[1]],
+        client.query('INSERT INTO location(latitude,longitude,time,date,trip_id) VALUES ($1,$2,$3,$4,$5);', [input.latitude,input.longitude,timeDate[0],timeDate[1],input.trip_id],
         (err, result) => {
          //return the client back after you are done using it
             release();
