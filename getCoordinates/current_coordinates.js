@@ -6,7 +6,7 @@ const search = require('./id_query');
 router.use(bodyParser.urlencoded({extended : true}));
 
 router.post('/',(req,res)=> {
-    const id = req.body.id;
+    const id = req.body.id; 
     search(req,res,id);
 });
 

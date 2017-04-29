@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-
+var fs = require('fs');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({extended : true}));
@@ -32,10 +32,16 @@ function display(req,res) {
              if(err){
                  return console.log(err);
             }
-            
-            //'results.rows' contains the data of the rows selected from the query
-            res.send(results.rows);
-            // console.log(results.rows);
+            //To read the html file 
+            var file = fs.readFileSync(__dirname + "/display.htm",'utf-8');
+            var data = "";
+            //Iterating each row returned from query
+            results.rows.forEach((ele,ind,arr) => {
+               data = data + "<tr><td>" + ele['latitude'] + "</td><td>" + ele['longitude'] + "</td><td>"+ ele['time']+ "</td><td>"+ ele['date'] + "</td><td>"+ ele['trip_id'] +"</td></tr>"             
+            })
+            //Add table contents
+            file = file.replace('{Rows}',data);
+            res.end(file);
          });
     });
 }
