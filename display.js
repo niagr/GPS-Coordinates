@@ -7,18 +7,17 @@ var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({extended : true}));
 
-router.post('/',(req,res,next) => {
-    display(req,res);
-});
+router.get('/', (req, res) => {
+    const count = req.query['count'];
+    display(req, res, count);
+})
 
 
 module.exports = router;
 
-function display(req,res) {
+function display(req,res, cnt) {
     //include Postgres module and accept clients from pool
     const pool = require(__dirname + "/pg-pool");
-    const cnt = req.body.count;
-    console.log(cnt);
      pool.connect((err,client,release) => {
         if(err){
             res.send('Connection Failed')

@@ -19,6 +19,8 @@ function addToDataBase(req,res){
     //Storing the body content in 'user'
     const input = req.body;
 
+    console.log("Recieved update from", input.trip_id, ":", input.latitude, input.longitude);
+
     //Check for null values 
     if(input.latitude == '' || input.longitude == '' || input.time == '' || input.trip_id == ''){
         res.send('<h1>Input Some Values Ediot</h1>\n');
