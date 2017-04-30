@@ -38,7 +38,7 @@ function display(req,res) {
             //Iterating each row returned from query
             results.rows.forEach((ele,ind,arr) => {
                data = data + "<tr><td>" + ele['latitude'] + "</td><td>" + ele['longitude'] + "</td><td>"+ ele['time']+ "</td><td>"+ ele['date'] + "</td><td>"+ ele['trip_id'] +"</td></tr>"             
-            })
+        })
             //Add table contents
             file = file.replace('{Rows}',data);
             res.end(file);
