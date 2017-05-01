@@ -13,3 +13,8 @@ CREATE TABLE location(
  );
 
 
+--store the current trip_id for a given route
+CREATE TABLE gettripid(
+     route_id smallint NOT NULL,
+     trip_id uuid NOT NULL
+);
