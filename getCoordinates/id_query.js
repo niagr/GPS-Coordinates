@@ -17,6 +17,7 @@ function search(req,res,route_id){
             //get current location of the mentioned trip_id
             client.query("SELECT latitude,longitude FROM location WHERE trip_id='" + trip_id.rows[0].trip_id + "' ORDER BY sr_no DESC LIMIT 1",
             (err,coordinates) =>{
+                release()
                 if(err)
                  return console.log(err);       
                 
