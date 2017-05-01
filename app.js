@@ -14,6 +14,7 @@ const current_coordinates = require(__dirname +'/getCoordinates/current_coordina
 const startTrip = require(__dirname + "/startTrip/startTrip.js");
 
 const bus_routes = require('./bus_routes')
+const route_coords = require('./route_coords')
 
 
 app.use('/',(req,res,next) => {
@@ -39,6 +40,7 @@ app.use('/current_coordinates',current_coordinates);
 app.use('/startTrip',startTrip);
 
 app.use('/bus_routes', bus_routes)
+app.use('/route_coords', route_coords)
 
 app.listen('8080',() => {
     console.log("Listening on Port 8080");
