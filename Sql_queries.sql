@@ -1,15 +1,17 @@
 CREATE TABLE location(
- latitude varchar(10) NOT NULL,
- longitude varchar(10) NOT NULL,
- time time NOT NULL,
- date date NOT NULL,
- sr_no bigserial NOT NULL PRIMARY KEY,
- trip_id uuid NOT NULL);
+    latitude varchar(10) NOT NULL,
+    longitude varchar(10) NOT NULL,
+    time time NOT NULL,
+    date date NOT NULL,
+    sr_no bigserial NOT NULL PRIMARY KEY,
+    trip_id uuid NOT NULL
+);
 
 --store the current trip_id for a given route
 CREATE TABLE gettripid(
-     route_id smallint NOT NULL,
-     trip_id uuid NOT NULL
+    sr_no bigserial
+    route_id smallint NOT NULL,
+    trip_id uuid NOT NULL
 );
 
 CREATE TABLE routes (
