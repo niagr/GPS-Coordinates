@@ -9,9 +9,9 @@ CREATE TABLE location(
 
 --store the current trip_id for a given route
 CREATE TABLE gettripid(
-    sr_no bigserial
     route_id smallint NOT NULL,
-    trip_id uuid NOT NULL
+    trip_id uuid NOT NULL,
+    sr_no bigserial
 );
 
 CREATE TABLE routes (
