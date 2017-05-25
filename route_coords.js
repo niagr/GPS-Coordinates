@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             res.send('Route does not exist')
             return
         }
-        client.query('SELECT * from route_coords WHERE route_id=' + route_id + 'AND is_stop=FALSE;', (err, result) => {
+        client.query('SELECT * from route_coords WHERE route_id=' + route_id + ';', (err, result) => {
             release()
             if (err)
                 return console.log('Could not get route coordinates:', err)
