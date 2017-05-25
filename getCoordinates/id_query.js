@@ -9,7 +9,7 @@ function search(req,res,route_id){
         //to store the row returned from query
          var trip_id = [];
          //get the matching trip_id for the given route_id
-       client.query("SELECT trip_id FROM gettripid WHERE route_id =" +route_id ,
+       client.query("SELECT trip_id FROM gettripid WHERE route_id =" +route_id + "ORDER BY sr_no DESC LIMIT 1",
          (err, trip_id) => {
              if(err){
                  return console.log(err);
